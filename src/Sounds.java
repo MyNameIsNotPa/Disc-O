@@ -22,4 +22,11 @@ public class Sounds {
     public static void stop(String name) {
         sounds.get(name).stop();
     }
+
+    public static void playAfter(double beats, String name) {
+        double seconds = beats * Director.getBps();
+        Main.waitToDo(seconds, () -> {
+            Sounds.play(name);
+        });
+    }
 }

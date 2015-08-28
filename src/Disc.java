@@ -9,7 +9,6 @@ public class Disc {
 	private double letTime;
 	private double xPos;
 	private Circle circle;
-	private String state;
 	private MotionBlur blur;
     private double heldBeat;
     private boolean holding;
@@ -65,20 +64,6 @@ public class Disc {
         this.heldBeat = heldBeat;
         holding = true;
         Player holder = getReceiver();
-        Main.waitToDo(Director.getBps() * 1, () -> {
-            if (holding) {
-                if (getReceiver() == holder) {
-                    Sounds.play("charge");
-                }
-            }
-        });
-        Main.waitToDo(Director.getBps() * 3, () -> {
-            if (holding) {
-                if (getReceiver() == holder) {
-                    Sounds.play("ding");
-                }
-            }
-        });
     }
 
     public void release(String move) {
@@ -90,21 +75,9 @@ public class Disc {
         }
     }
 
-    public String getMove() {
-        return move;
-    }
-
     public void setMove(String move) {
         this.move = move;
     }
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
-	public String getState() {
-		return state;
-	}
 
 	private double clamp(double val) {
 		return Math.min(Math.max(val, 0), 1);

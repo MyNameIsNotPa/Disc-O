@@ -40,7 +40,10 @@ public class Main extends Application {
         Sounds.addSound("charge");
         Sounds.addSound("turbo");
         Sounds.addSound("trip");
-        Director.startSong(new Song("BRODYQUEST"));
+        Sounds.addSound("3");
+        Sounds.addSound("2");
+        Sounds.addSound("1");
+        Director.startSong(new Song("RALLY"));
 	}
 
     public static void waitToDo(double seconds, Runnable thingToDo) {
